@@ -1,12 +1,96 @@
+/*Global class*/
 .even-color {
-	background: red;
+	background: #a49d9d;
 }
 
 .odd-color {
-	background: green;
+	background: #7fbeea;
 }
 
-.grid {
+/*Basic grid*/
+
+.basic-grid {
 	display: grid;
-	grid-template-columns: 200px 200px 200px;
+	/*you can use fix width or fraction value using fr*/
+	/*grid-template-columns: 300px 300px 300px;*/
+	/*grid-template-columns: 1fr 1fr;*/
+	
+	/*Combination of fix width and fr*/
+	/*grid-template-columns: 100px 1fr 1fr 1fr;*/
+
+	/*Grid using repeat*/
+	/*grid-template-columns: repeat(2,1fr);*/
+
+	/*Grid using minmax*/
+	grid-template-columns: minmax(500px,700px) repeat(2,1fr);
+
+	/*Grid gap*/
+
+	/*Gap between columns*/
+	grid-column-gap: 15px;
+
+	/*Gap between Rows*/
+	grid-row-gap: 25px;
+
+	/*Short code to give colmun and row gap*/
+	grid-gap: 15px;
+
+	/*height for individual rows*/
+	grid-template-rows: 50px 100px;
+
+	/*height: for Global rows in grid*/
+	/*grid-auto-rows: 100px;*/
+	
+	/*grid position by row*/
+	/*grid-auto-flow: row;*/
+
+	/*grid position by column*/
+	/*grid-auto-flow: column;*/
+}
+
+/*Order in grid*/
+
+.order-grid {
+	margin-top: 50px;
+	display: grid;
+	grid-template-columns: repeat(3,1fr);
+	grid-auto-rows: 100px;
+	grid-gap: 15px;
+}
+
+.order-grid :nth-child(4) {
+	order: 2;
+}
+
+.order-grid :nth-child(2) {
+	order: 6;
+}
+
+.order-grid :nth-child(3) {
+	order: 4;
+}
+
+.order-grid :nth-child(1) {
+	order: 2;
+}
+
+.order-grid :nth-child(5) {
+	order: 1;
+}
+
+.order-grid div {
+	order: 2;
+}
+
+/*Auto fit and auto fill */
+
+.fill-grid {
+	margin-top: 50px;
+	display: grid;
+	/*Auto fill will create 80px repeated div's on screen*/
+	/*grid-template-columns: repeat(auto-fill,minmax(80px,1fr));*/
+
+	/*Auto fit can be used to fit div when there is space on sides.*/
+	grid-template-columns: repeat(auto-fit,minmax(80px,1fr));
+	grid-auto-rows: 100px;
 }
